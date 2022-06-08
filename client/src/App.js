@@ -6,7 +6,7 @@ import Detail from './components/Detail/Detail';
 
 
 import './App.css';
-import CreateDog from './components/Create Dog/CreateDog';
+import CreateDog from './components/Create_Dog/CreateDog';
 
 function App() {
   return (

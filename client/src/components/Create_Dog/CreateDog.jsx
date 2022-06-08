@@ -66,7 +66,7 @@ export default function CreateDog() {
         if(temperament.length === 0){
             dispatch(getTemperaments())
         }
-    }, [dispatch])
+    }, [dispatch, temperament.length])
 
     const handleChange = (e) => {
         setInput({

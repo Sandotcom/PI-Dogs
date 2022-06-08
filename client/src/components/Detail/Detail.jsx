@@ -14,7 +14,7 @@ export default function Detail() {
     useEffect(() => {
         setLoading(true)
         dispatch(getDetail(params.id, setLoading))
-    }, [dispatch])
+    }, [dispatch, params.id])
 
     if(loading){
         return (
