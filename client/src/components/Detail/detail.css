@@ -1,0 +1,13 @@
+.detail {
+    width: 100vw;
+    height: 70vh;
+    align-items: center;
+    overflow: hidden;
+}
+
+.detail img {
+    border-radius: 0.5rem;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: hidden;
+}
