@@ -18,11 +18,11 @@ export default function Search() {
     }
 
     return (
-        <>
+        <div className="searchbar">
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder="Search" onChange={handleChange}/>
+                <input type='text' placeholder="Search..." onChange={handleChange}/>
                 <button type="submit">Buscar</button>
             </form>
-        </>
+        </div>
     )
 }

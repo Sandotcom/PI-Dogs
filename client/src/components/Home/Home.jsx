@@ -4,7 +4,7 @@ import Cards from "../Cards/Cards";
 import { getDogs, getTemperaments } from "../../actions";
 import Pagination from "../Pagination/Pagination";
 import Filters from "../Filters/Filters";
-import Search from "../Search/Search";
+import Nav from "../Nav/Nav";
 
 
 export default function Home() {
@@ -23,8 +23,7 @@ export default function Home() {
 
     return (
         <>
-            <h1>Dogs</h1>
-            <Search />
+            <Nav/>
             <Filters />
             <Cards />
             <Pagination />

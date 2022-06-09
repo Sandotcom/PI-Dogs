@@ -1,4 +1,4 @@
-import { GET_ALL, GET_DETAIL, GET_NAME, GET_TEMPERAMENT, SET_PAGE, ORDER_NAME, ORDER_TEMPERAMENT, ORDER_WEIGHT, CREATED_IN_DB } from "./actionTypes.js";
+import { GET_ALL, GET_DETAIL, GET_NAME, GET_TEMPERAMENT, SET_PAGE, ORDER_NAME, ORDER_TEMPERAMENT, ORDER_WEIGHT, CREATED_IN_DB, SET_ORDER, SET_FILTER } from "./actionTypes.js";
 import * as api from '../api';
 
 export const getDogs = () => async (dispatch) => {
@@ -68,10 +68,20 @@ export const setPage = (page) => {
     return { type: SET_PAGE, payload: page }
 }
 
-export const createDog = async (newDog)  => {
+export const createDog = (newDog) => async(dispatch) => {
     try {
         await api.createDog(newDog)
+        const { data } = await api.getAll();
+        dispatch({ type: GET_ALL, payload: data})
     } catch (e) {
         console.log(e.message)
     }
+}
+
+export const setOrder = (order) => {
+    return { type: SET_ORDER, payload: order}
+}
+
+export const setFilter = (filter) => {
+    return { type: SET_FILTER, payload: filter }
 }
