@@ -135,7 +135,7 @@ const dbInfoById = async (id) => {
             temperament: e.temperaments.map(e => e.name),
             height: e.minHeight.concat(' - ', e.maxHeight),
             weight: e.minWeight.concat(' - ', e.maxWeight),
-            life_span: e.life_span,
+            life_span: e.life_span.concat(' years'),
         }
     })
 

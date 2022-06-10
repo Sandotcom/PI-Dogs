@@ -5,18 +5,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .navbar h1{
     color: #dadada;
-    margin-left: 20px;
     font-size: 25px;
+    margin-left: 20px;
+}
+
+.searchbar{
+    position: absolute;
+    left: 42%;
 }
 
 .searchbar input {
     padding: 15px 15px;
     background-color: transparent;
-    transition: transform 250ms ease-in-out;
     font-size: 14px;
     font-weight: bold;
     color: #dadada;
@@ -56,6 +61,7 @@
 
 .navbtn button{
     padding: 15px 15px;
+    margin-right: 20px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
     font-size: 14px;
@@ -67,7 +73,6 @@
     transition: all 250ms ease-in-out;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    margin-right: 20px;
 }
 
 .navbtn button:hover, button:hover{

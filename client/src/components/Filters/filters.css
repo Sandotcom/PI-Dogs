@@ -1,0 +1,9 @@
+.filters select{
+    background-color: #1e2020;    
+    font-size: 14px;
+    color: #dadada;
+    margin-right: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #575756;
+}

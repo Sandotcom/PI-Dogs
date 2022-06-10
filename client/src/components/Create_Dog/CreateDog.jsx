@@ -6,7 +6,7 @@ import '../Create_Dog/create.css'
 
 function validate(input){
     let error = {};
-
+    
     if(!input.name){
         error.name = 'Name is required'
     } else if(!/^\w\D{3,35}$/.test(input.name)){
@@ -169,7 +169,7 @@ export default function CreateDog() {
                 ...error,
                 temperament: hasError
             })} else {
-                delete temperament.life_span
+                delete error.temperament
                 setError({...error})
         }
     }

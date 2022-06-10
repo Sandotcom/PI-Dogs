@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
 
     await newDog.addTemperament(temperaments);
     
-    res.status(201).send('Creado')
+    res.status(200).send('Creado')
 })
 
 module.exports = router

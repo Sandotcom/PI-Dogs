@@ -24,7 +24,7 @@
 }
 
 .form input{
-    padding: 10px 10px;
+    padding: 15px 15px;
     margin: 5px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
@@ -35,7 +35,8 @@
 }
 
 .form input:hover, input:focus{
-    padding: 10px 10px;
+    background-color: transparent;
+    padding: 15px 15px;
     outline: 0;
     border: 1px solid transparent;
     border-bottom: 1px solid #575756;

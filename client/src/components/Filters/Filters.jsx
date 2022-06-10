@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { orderTemp, setPage, getDogs, createdInDB, orderWeight, orderName, setOrder, setFilter } from "../../actions";
+import '../Filters/filters.css'
 
 export default function Filters() {
     const dispatch = useDispatch()
@@ -36,30 +37,32 @@ export default function Filters() {
         }
         dispatch(createdInDB(e.target.value))
         dispatch(setPage(1))
+        dispatch(setOrder('nasc'))
+        dispatch(setFilter('All'))
     }
 
-    return (
-        <>
+    return (        
+        <div className="filters">
+            <select value={order} onChange={handleOrder}>           
+                <option value='nasc'>Name asc</option>
+                <option value='ndsc'>Name dsc</option>            
+                <option value='wasc'>Weight asc</option>
+                <option value='wdsc'>Weight dsc</option>            
+            </select>
+
+            <select value={filter} onChange={handleTemperament}>
+                <option value='All'>All</option>
+                {temperament.map(e =>( 
+                    <option key={e.id} value={e.name}>{e.name}</option>
+                ))}
+            </select>
+
+            <select onChange={handleCreated}>
+                <option value='All'>All</option>
+                <option value='true'>From DB</option>
+                <option value='false'>From API</option>
+            </select>
+        </div>
         
-        <select value={order} onChange={handleOrder}>           
-            <option value='nasc'>Name asc</option>
-            <option value='ndsc'>Name dsc</option>            
-            <option value='wasc'>Weight asc</option>
-            <option value='wdsc'>Weight dsc</option>            
-        </select>
-
-        <select value={filter} onChange={handleTemperament}>
-            <option value='All'>All</option>
-            {temperament.map(e =>( 
-                <option key={e.id} value={e.name}>{e.name}</option>
-            ))}
-        </select>
-
-        <select onChange={handleCreated}>
-            <option value='All'>All</option>
-            <option value='true'>From DB</option>
-            <option value='false'>From API</option>
-        </select>
-        </>
     )
 }
