@@ -10,7 +10,7 @@ import Nav from "../Nav/Nav";
 export default function Home() {
     const dispatch = useDispatch()
     const dogs = useSelector(state => state.dogs)
-    const temperament = useSelector(state => state.temperament)  
+    const temperament = useSelector(state => state.temperament)
 
     useEffect(() => {
         if(dogs.length === 0){

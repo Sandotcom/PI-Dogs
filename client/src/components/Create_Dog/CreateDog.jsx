@@ -90,6 +90,7 @@ function validateTemperament(input){
 export default function CreateDog() {
     const [input, setInput] = useState({ name: '', minHeight: '', maxHeight: '', minWeight: '', maxWeight: '', life_span: '', temperament: [] })
     const [error, setError] = useState({})
+    const dogs = useSelector(state => state.dogs)
     const temperament = useSelector(state => state.temperament)
     const dispatch = useDispatch()
     const navigate = useNavigate()

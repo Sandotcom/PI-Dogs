@@ -12,8 +12,20 @@ router.post('/', async (req, res) => {
     });
 
     await newDog.addTemperament(temperaments);
+
+    const info = await Dog.findAll({
+        where: {
+            name: name
+        }, include: {
+            model: Temperament,
+            attributes: ['name'],
+            through: {
+                attributes: []
+            }
+        }}
+    )
     
-    res.status(200).send('Creado')
+    res.status(200).send(info)
 })
 
 module.exports = router

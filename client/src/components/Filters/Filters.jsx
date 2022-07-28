@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { orderTemp, setPage, getDogs, createdInDB, orderWeight, orderName, setOrder, setFilter } from "../../actions";
+import { orderTemp, setPage, getDogs, createdInDB, orderWeight, orderName, setOrder, setFilter, setOrderMax } from "../../actions";
 import '../Filters/filters.css'
 
 export default function Filters() {
@@ -15,8 +15,10 @@ export default function Filters() {
         
         if(e.target.value === 'nasc' || e.target.value === 'ndsc') {
             dispatch(orderName(e.target.value))
-        } else {
+        } else if (e.target.value === 'wasc' || e.target.value === 'wdsc'){
             dispatch(orderWeight(e.target.value))
+        } else {
+            dispatch(setOrderMax(e.target.value))
         }
         dispatch(setPage(0))
         dispatch(setPage(1))
@@ -47,7 +49,9 @@ export default function Filters() {
                 <option value='nasc'>Name asc</option>
                 <option value='ndsc'>Name dsc</option>            
                 <option value='wasc'>Weight asc</option>
-                <option value='wdsc'>Weight dsc</option>            
+                <option value='wdsc'>Weight dsc</option>
+                <option value= 'wmasc'>Weight max asc</option>
+                <option value= 'wmdsc'>Weight max dsc</option>
             </select>
 
             <select value={filter} onChange={handleTemperament}>

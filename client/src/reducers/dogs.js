@@ -1,4 +1,4 @@
-import { GET_ALL, GET_NAME, ORDER_TEMPERAMENT, ORDER_NAME, ORDER_WEIGHT, CREATED_IN_DB } from '../actions/actionTypes.js'
+import { GET_ALL, GET_NAME, ORDER_TEMPERAMENT, ORDER_NAME, ORDER_WEIGHT, CREATED_IN_DB, SET_ORDERMAX } from '../actions/actionTypes.js'
 
 export default function dogs (state = [], action) {
     switch(action.type) {
@@ -54,6 +54,30 @@ export default function dogs (state = [], action) {
             return orderInfo
         case CREATED_IN_DB:
             return action.payload
+        case 'CONCAT':
+            return [...state, state.push(action.payload)]
+        case SET_ORDERMAX:
+            let neworderInfo =
+            action.payload === "wmasc"
+            ? state.sort(function (a, b) {
+            if (a.weight[1] > b.weight[1]) {
+                return 1;
+            }
+            if (a.weight[1] < b.weight[1]) {
+                return -1;
+            }
+             return 0;
+            })
+            : state.sort(function (a, b) {
+            if (a.weight[1] > b.weight[1]) {
+                return -1;
+            }
+            if (a.weight[1] < b.weight[1]) {
+                return 1;
+            }
+            return 0;
+            });
+            return neworderInfo
         default:
             return state
     }
